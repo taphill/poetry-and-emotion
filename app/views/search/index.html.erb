@@ -3,10 +3,10 @@
 <% @poems.each do |poem| %>
   <div class="poem">
     <ul>
-      <h4 class="title">Title: <%= poem[:title] %></h4>
-      <h4 class="author">Author: <%= poem[:author] %></h4>
+      <h4 class="title">Title: <%= poem.title %></h4>
+      <h4 class="author">Author: <%= poem.author %></h4>
       <div class="poem-lines">
-        <% poem[:lines].each do |line|%>
+        <% poem.lines.each do |line|%>
           <div><%= line %></div>
         <% end %>
       </div>
