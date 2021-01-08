@@ -1,12 +1,9 @@
 class SearchFacade
   def self.poems(author)
-    conn = Faraday.new(
-      url: 'https://poetrydb.org/',
-      headers: {'Content-Type' => 'application/json'}
-    )
+    poems = PoemService.find_poems_by_author(author)
 
-    response = conn.get("author/#{author}")
-
-    JSON.parse(response.body, symbolize_names: true)[0..9]
+    poems.map do |poem|
+      Poem.new(poem)
+    end
   end
 end
