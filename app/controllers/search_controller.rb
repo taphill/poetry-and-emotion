@@ -8,8 +8,6 @@ class SearchController < ApplicationController
 
     response = conn.get("author/#{params[:author]}")
 
-    @peoms = JSON.parse(response.body, symbolize_names: true)
-
-require 'pry'; binding.pry
+    @poems = JSON.parse(response.body, symbolize_names: true)[0..9]
   end
 end
